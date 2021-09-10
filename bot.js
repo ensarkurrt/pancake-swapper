@@ -10,7 +10,8 @@ dotenv.config();
 const data = {
   WBNB: process.env.WBNB_CONTRACT, //wbnb
 
-  to_PURCHASE: process.env.TO_PURCHASE, // token that you will purchase = BUSD for test '0xe9e7cea3dedca5984780bafc599bd69add087d56'
+  to_PURCHASE:
+    process.argv.length > 2 ? process.argv[2] : process.env.TO_PURCHASE, // token that you will purchase = BUSD for test '0xe9e7cea3dedca5984780bafc599bd69add087d56'
 
   AMOUNT_OF_WBNB: process.env.AMOUNT_OF_WBNB, // how much you want to buy in WBNB
 
@@ -76,7 +77,8 @@ const erc = new ethers.Contract(
 );
 
 const run = async () => {
-  await checkLiq();
+  console.log(tokenOut);
+  //await checkLiq();
 };
 
 let checkLiq = async () => {
