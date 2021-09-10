@@ -77,7 +77,8 @@ const erc = new ethers.Contract(
 );
 
 const run = async () => {
-  await checkLiq();
+  console.log({ tokenOut });
+  /* await checkLiq(); */
 };
 
 let checkLiq = async () => {
@@ -98,11 +99,11 @@ let checkLiq = async () => {
   console.log(`value BNB : ${jmlBnb}`);
 
   if (jmlBnb > data.minBnb) {
-    console.log(' buy');
-    setTimeout(() => buyAction(), 3000);
+    console.log('buying');
+    setTimeout(() => buyAction(), 100);
   } else {
     initialLiquidityDetected = false;
-    console.log(' run again...');
+    console.log('run again...');
     return await run();
   }
 };
