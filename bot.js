@@ -77,8 +77,7 @@ const erc = new ethers.Contract(
 );
 
 const run = async () => {
-  console.log({ tokenOut });
-  /* await checkLiq(); */
+  await checkLiq();
 };
 
 let checkLiq = async () => {
